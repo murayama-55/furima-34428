@@ -50,16 +50,16 @@
 - belongs_to :item
 - has_one :address
 
-## addressテーブル
+## addressesテーブル
 
 ｜ Colum         ｜ Type       ｜ Option                         ｜
 ｜ ------------- ｜ ---------- ｜ ------------------------------ ｜
 ｜ post_code     ｜ string     ｜ null: false                    ｜
 ｜ prefecture_id ｜ integer    ｜ null: false                    ｜
 ｜ city          ｜ string     ｜ null: false                    ｜
-｜ addresses     ｜ string     ｜                                ｜
+｜ address     ｜ string     ｜                                ｜
 ｜ building      ｜ string     ｜ null: false                    ｜
-｜ phone         ｜ integer    ｜ null: false                    ｜
+｜ phone         ｜ string     ｜ null: false                    ｜
 ｜ buy           ｜ references ｜ null: false, foreign_key: true ｜
 
 ### Association
