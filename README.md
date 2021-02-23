@@ -9,8 +9,8 @@
 ｜ encrypted_password ｜ string     ｜ null: false                    ｜
 ｜ first_name         ｜ string     ｜ null: false                    ｜
 ｜ last_name          ｜ string     ｜ null: false                    ｜
-｜ first_name_ruby    ｜ string     ｜ null: false                    ｜
-｜ last_name_ruby     ｜ string     ｜ null: false                    ｜
+｜ first_name_kana    ｜ string     ｜ null: false                    ｜
+｜ last_name_kana     ｜ string     ｜ null: false                    ｜
 ｜ birthday           ｜ date       ｜ null: false                    ｜
 
 ### Association
@@ -25,11 +25,11 @@
 ｜ item_name        ｜ string     ｜ null: false                    ｜
 ｜ info             ｜ text       ｜ null: false                    ｜
 ｜ price            ｜ integer    ｜ null: false                    ｜
-｜ category_id      ｜ strings    ｜ null: false                    ｜
-｜ sales_status_id  ｜ strings    ｜ null: false                    ｜
-｜ shipping_fee_id  ｜ strings    ｜ null: false                    ｜
-｜ prefecture_id    ｜ strings    ｜ null: false                    ｜
-｜ schedule_id      ｜ strings    ｜ null: false                    ｜
+｜ category_id      ｜ integer    ｜ null: false                    ｜
+｜ sales_status_id  ｜ integer    ｜ null: false                    ｜
+｜ shipping_fee_id  ｜ integer    ｜ null: false                    ｜
+｜ prefecture_id    ｜ integer    ｜ null: false                    ｜
+｜ schedule_id      ｜ integer    ｜ null: false                    ｜
 ｜ user             ｜ references ｜ null: false, foreign_key: true ｜
 
 ### Association
@@ -55,7 +55,7 @@
 ｜ Colum         ｜ Type       ｜ Option                         ｜
 ｜ ------------- ｜ ---------- ｜ ------------------------------ ｜
 ｜ post_code     ｜ string     ｜ null: false                    ｜
-｜ prefecture_id ｜ strings    ｜ null: false                    ｜
+｜ prefecture_id ｜ integer    ｜ null: false                    ｜
 ｜ city          ｜ string     ｜ null: false                    ｜
 ｜ addresses     ｜ string     ｜                                ｜
 ｜ building      ｜ string     ｜ null: false                    ｜
