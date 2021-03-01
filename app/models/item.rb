@@ -9,7 +9,9 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :item_name
     validates :info
-    validates :price
+    validates :price, format: { with: /\A[0-9]+\z/ }, numericality: {
+      only_integer: true, greater_than: 299, less_than: 10000000
+      }
     validates :category_id, numericality: { other_than: 1 } 
     validates :sales_status_id, numericality: { other_than: 1 } 
     validates :shipping_fee_id, numericality: { other_than: 1 } 
