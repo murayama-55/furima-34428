@@ -3,7 +3,7 @@ FactoryBot.define do
 
     item_name         {Faker::Base.regexify("[aあ]{5}")}
     info              {Faker::Base.regexify("[aあ]{20}")}
-    price             {'1000'}
+    price             {rand(300..9999999)}
     category_id       {'2'}
     sales_status_id   {'2'}
     shipping_fee_id   {'2'}
