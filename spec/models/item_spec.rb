@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   before do
-    @user = FactoryBot.build(:user)
     @item = FactoryBot.build(:item)
-    # @item.image = fixture_file_upload('app/assets/images/00.jpg')
   end
 
   describe '商品出品' do
@@ -35,25 +33,50 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include "Category can't be blank"
      end
+     it 'categoryが1では出品できない' do
+      @item.category_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Category must be other than 1"
+     end
      it 'sales_statusが空では出品できない' do
-      @item.sales_status = nil
+      @item.sales_status_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include "Sales status can't be blank"
+     end
+     it 'sales_statusが1では出品できない' do
+      @item.sales_status_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Sales status must be other than 1"
      end
      it 'shipping_feeが空では出品できない' do
       @item.shipping_fee_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include "Shipping fee can't be blank"
      end
+     it 'shipping_feeが1では出品できない' do
+      @item.shipping_fee_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Shipping fee must be other than 1"
+     end
      it 'prefectureが空では出品できない' do
       @item.prefecture_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include "Prefecture can't be blank"
      end
+     it 'prefectureが1では出品できない' do
+      @item.prefecture_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Prefecture must be other than 1"
+     end
      it 'scheduleが空では出品できない' do
       @item.schedule_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include "Schedule can't be blank"
+     end
+     it 'scheduleが1では出品できない' do
+      @item.schedule_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include "Schedule must be other than 1"
      end
      it 'priceが空では出品できない' do
       @item.price = nil
