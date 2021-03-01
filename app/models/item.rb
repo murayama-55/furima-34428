@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :schedule
 
   with_options presence: true do
+    validates :image
     validates :item_name
     validates :info
     validates :price, format: { with: /\A[0-9]+\z/ }, numericality: {
