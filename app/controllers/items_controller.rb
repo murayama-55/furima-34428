@@ -14,9 +14,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to items_path
+      redirect_to root_path
     else
-      render new_item_path
+      render :new
     end
   end
 
@@ -35,9 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-      redirect_to items_path
-    end
+    redirect_to root_path if @item.destroy
   end
 
   private
