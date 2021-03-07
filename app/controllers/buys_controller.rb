@@ -1,5 +1,5 @@
 class BuysController < ApplicationController
-  before_action :authenticate_user!, only: :index
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
 
   def index
@@ -11,7 +11,7 @@ class BuysController < ApplicationController
 
   def create
     @buy_address = BuyAddress.new(buy_params)
-    unless @item.user == current_user
+    unless @item.user_id == current_user.id
       if @buy_address.valid?
         pay_item
         @buy_address.save

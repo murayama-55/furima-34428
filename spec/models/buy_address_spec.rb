@@ -60,6 +60,26 @@ RSpec.describe BuyAddress, type: :model do
         @buy.valid?
         expect(@buy.errors.full_messages).to include("Phone is invalid")
       end
+      it "電話番号が12桁以上では保存できない" do
+        @buy.phone = '111111111111'
+        @buy.valid?
+        expect(@buy.errors.full_messages).to include("Phone is too long (maximum is 11 characters)")
+      end
+      it "電話番号にハイフンを入れると保存できない" do
+        @buy.phone = '090-1234-5678'
+        @buy.valid?
+        expect(@buy.errors.full_messages).to include("Phone is invalid")
+      end
+      it "user_idが存在しない場合は保存できない" do
+        @buy.user_id = nil
+        @buy.valid?
+        expect(@buy.errors.full_messages).to include("User can't be blank")
+      end
+      it "item_idが存在しない場合は保存できない" do
+        @buy.item_id = nil
+        @buy.valid?
+        expect(@buy.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
   
