@@ -2,6 +2,9 @@ class BuyAddress
   include ActiveModel::Model
   attr_accessor :token, :item_id, :user_id, :post_code, :prefecture_id, :city, :address, :building, :phone
 
+  #extend ActiveHash::Associations::ActiveRecordExtensions
+  #belongs_to :prefecture
+
   with_options presence: true do
     validates :token
     validates :item_id
@@ -18,8 +21,9 @@ class BuyAddress
 
   def save
     @buy = Buy.create(item_id: item_id, user_id: user_id)
+    binding.pry
     Address.create(post_code: post_code, prefecture_id: prefecture_id, city: city,
-       address: address, building: building, phone: phone)
+       address: address, building: building, phone: phone, buy_id: @buy.id)
   end
 
 end
