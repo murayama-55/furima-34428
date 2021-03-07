@@ -9,7 +9,7 @@ class BuyAddress
     validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :city
     validates :address
-    validates :phone, format: { with: /\A[0-9]+\z/ }, length: { maxmum: 11 }
+    validates :phone, format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 }
   end
 
   with_options numericality: { other_than: 1 } do
