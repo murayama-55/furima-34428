@@ -2,17 +2,14 @@ class BuyAddress
   include ActiveModel::Model
   attr_accessor :token, :item_id, :user_id, :post_code, :prefecture_id, :city, :address, :building, :phone
 
-  #extend ActiveHash::Associations::ActiveRecordExtensions
-  #belongs_to :prefecture
-
   with_options presence: true do
     validates :token
     validates :item_id
     validates :user_id
-    validates :post_code
+    validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :city
     validates :address
-    validates :phone
+    validates :phone, format: { with: /\A[0-9]+\z/ }, length: { maxmum: 11 }
   end
 
   with_options numericality: { other_than: 1 } do
