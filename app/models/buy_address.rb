@@ -17,9 +17,9 @@ class BuyAddress
   end
 
   def save
-    @buy = Buy.create(item_id: item_id, user_id: user_id)
+    buy = Buy.create(item_id: item_id, user_id: user_id)
     Address.create(post_code: post_code, prefecture_id: prefecture_id, city: city,
-       address: address, building: building, phone: phone, buy_id: @buy.id)
+       address: address, building: building, phone: phone, buy_id: buy.id)
   end
 
 end
